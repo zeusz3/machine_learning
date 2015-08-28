@@ -97,10 +97,8 @@ while ~isempty(email_contents)
     %       str2). It will return 1 only if the two strings are equivalent.
     %
 
-isin = lookup(vocabList, str);
-if (isin != 0)
-  word_indices = [word_indices; isin];
-end
+match = strcmp(vocabList, str);
+word_indices = [word_indices; find(match)];
     % =============================================================
 
 
