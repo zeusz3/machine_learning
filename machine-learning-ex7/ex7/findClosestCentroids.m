@@ -21,8 +21,8 @@ idx = zeros(size(X,1), 1);
 % Note: You can use a for-loop over the examples to compute this.
 %
 for i = 1:size(X,1)
-[val(i), idx(i)] = min(sum((X(i,:)-repmat(centroids, size(X,1)/K, 1)).^2,2));
-%[val, idx] = min(sum((X-repmat(centroids, size(X,1)/K, 1)).^2,2))
+  [val(i), idx(i)] = min(sum((centroids-repmat(X(i,:), K, 1)).^2,2));
+
 end
 
 
