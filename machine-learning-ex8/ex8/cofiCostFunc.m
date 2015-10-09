@@ -39,16 +39,12 @@ Theta_grad = zeros(size(Theta));
 %        Theta_grad - num_users x num_features matrix, containing the 
 %                     partial derivatives w.r.t. to each element of Theta
 %
-
-
-
-
-
-
-
-
-
-
+predict = X*Theta';
+rate_error = predict - Y;
+error_factor = R.*rate_error;
+J = sum(sum((error_factor).^2)/2);
+X_grad = error_factor*Theta;
+Theta_grad = error_factor'*X
 
 
 
