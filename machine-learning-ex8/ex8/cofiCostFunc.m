@@ -42,14 +42,9 @@ Theta_grad = zeros(size(Theta));
 predict = X*Theta';
 rate_error = predict - Y;
 error_factor = R.*rate_error;
-J = sum(sum((error_factor).^2)/2);
-X_grad = error_factor*Theta;
-Theta_grad = error_factor'*X
-
-
-
-
-
+X_grad = error_factor*Theta + lambda*X;
+Theta_grad = error_factor'*X + lambda*Theta;
+J = sum(sum((error_factor).^2)/2) + lambda*(sum(sum(X.^2)) + sum(sum(Theta.^2)))/2;
 
 % =============================================================
 
